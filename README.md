@@ -1,5 +1,6 @@
-# ecommerce app vue.js + tailwindcss
-  
+# ecommerce app
+# with vue 3 + tailwindcss
+
 ### 🚀 [Demo](####)
 
 ### 🌟 UI/UX from 
@@ -9,3 +10,4 @@
 ## ⚙ Installation
  
 * `npm install`
+* `npm run dev`
