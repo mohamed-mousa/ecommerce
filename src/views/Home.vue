@@ -1,14 +1,16 @@
 <script setup>
 import Input from "@/components/Input.vue";
 import { useCategoryStore } from "@/stores/categories";
-const categories = useCategoryStore();
+import { useAdStore } from "@/stores/ads";
+const categories = useCategoryStore().categories;
+const ads = useAdStore().ads;
 </script>
 
 <template>
-  <main class="bg-emerald-500 p-3 md:flex md:p-0">
+  <main class="bg-emerald-500 p-3 lg:flex lg:p-0">
     <!-- Welcome  -->
     <section
-      class="min-h-screen bg-emerald-500 md:w-7/12 md:p-8 lg:justify-center lg:pt-20"
+      class="min-h-screen bg-emerald-500 pt-5 lg:w-7/12 lg:justify-center lg:p-8 lg:pt-20"
     >
       <!-- page title -->
       <article class="mx-auto mb-8 max-w-2xl">
@@ -71,8 +73,8 @@ const categories = useCategoryStore();
           class="mb-3 grid max-w-2xl grid-cols-2 gap-3 md:grid-cols-3 xl:grid-cols-4"
         >
           <div
-            v-for="category in categories.categories"
-            class="group cursor-pointer rounded-xl border-2 border-transparent bg-emerald-600 bg-opacity-60 py-5 px-2 text-center text-white transition-all duration-500 hover:border-emerald-800 hover:bg-emerald-700 hover:bg-opacity-100 hover:shadow-xl"
+            v-for="category in categories"
+            class="group cursor-pointer rounded-2xl border-2 border-transparent bg-emerald-600 bg-opacity-60 py-5 px-2 text-center text-white transition-all duration-500 hover:border-emerald-800 hover:bg-emerald-700 hover:bg-opacity-100 hover:shadow-xl"
           >
             <img
               :src="category.image"
@@ -92,7 +94,7 @@ const categories = useCategoryStore();
 
         <button
           type="button"
-          class="flex w-full items-center justify-center rounded-xl border-2 border-transparent bg-emerald-600 bg-opacity-60 py-5 px-2 text-center text-lg font-bold text-white transition-all duration-500 hover:border-emerald-800 hover:bg-emerald-700 hover:bg-opacity-100 hover:shadow-xl focus:outline-none focus-visible:outline-none"
+          class="flex w-full items-center justify-center rounded-2xl border-2 border-transparent bg-emerald-600 bg-opacity-60 py-5 px-2 text-center text-lg font-bold text-white transition-all duration-500 hover:border-emerald-800 hover:bg-emerald-700 hover:bg-opacity-100 hover:shadow-xl focus:outline-none focus-visible:outline-none"
         >
           Browse all ads
           <svg
@@ -114,14 +116,18 @@ const categories = useCategoryStore();
 
       <!-- post or become a member -->
       <article class="mx-auto mb-8 max-w-2xl">
-        <p class="mb-5 text-xl text-white text-opacity-80">
+        <p
+          class="mb-5 text-center text-xl text-white text-opacity-80 sm:text-left"
+        >
           Do you have something to sell ?
         </p>
 
-        <div class="flex items-center justify-between">
+        <div
+          class="flex flex-col items-center justify-center sm:flex-row sm:justify-between"
+        >
           <button
             type="button"
-            class="focus-visible:outline-bl w-72 rounded-xl border-2 border-[#5ABA81] bg-gradient-to-r from-yellow-500 to-yellow-200 py-3 px-8 text-center font-bold text-black ring-neutral-900 transition-all duration-500 hover:border-yellow-600 hover:to-yellow-500 hover:shadow-xl focus:outline-none focus-visible:outline-none"
+            class="focus-visible:outline-bl w-72 rounded-2xl border-2 border-[#5ABA81] bg-gradient-to-r from-yellow-500 to-yellow-200 py-3 px-8 text-center font-bold text-black ring-neutral-900 transition-all duration-500 hover:border-yellow-600 hover:to-yellow-500 hover:shadow-xl focus:outline-none focus-visible:outline-none"
           >
             Post an ad
           </button>
@@ -148,7 +154,58 @@ const categories = useCategoryStore();
 
     <!-- cars -->
     <section
-      class="min-h-screen rounded-lg bg-white shadow-2xl md:w-5/12 lg:rounded-l-[40px] lg:rounded-r-none lg:p-80"
-    ></section>
+      class="min-h-screen rounded-lg bg-white px-4 py-5 shadow-2xl lg:w-5/12 lg:rounded-l-[40px] lg:rounded-r-none xl:pt-8 2xl:px-8"
+    >
+      <!-- title -->
+      <article class="mx-auto mb-5 xl:mb-8">
+        <div class="flex justify-between">
+          <h3 class="text-xl font-bold text-gray-500">Resent ads</h3>
+          <a
+            href="#"
+            class="flex items-center text-lg text-emerald-300 hover:text-emerald-500 focus:outline-none focus-visible:outline-none"
+            >See all
+          </a>
+        </div>
+      </article>
+
+      <!-- ads -->
+      <article class="mx-auto mb-8">
+        <a
+          v-for="ad in ads.slice(0, 6)"
+          href="#"
+          class="mb-4 flex w-full items-center justify-center rounded-2xl border-2 border-transparent bg-slate-100 p-2 transition-all duration-500 hover:border-slate-200 hover:bg-slate-50 hover:shadow-lg focus:outline-none focus-visible:outline-none sm:items-start sm:p-3 xl:p-0"
+        >
+          <img
+            :src="ad.image"
+            :alt="ad.title"
+            width="300"
+            height="200"
+            class="h-32 w-32 rounded-2xl transition-all duration-700 group-hover:scale-150 sm:h-40 sm:w-40"
+          />
+          <div class="mx-3 w-full py-3 xl:mx-5">
+            <h2
+              class="font-extrabold capitalize text-gray-800 sm:text-lg md:text-xl"
+            >
+              {{ ad.title }}
+            </h2>
+            <p class="text-base font-bold text-gray-700 text-opacity-50">
+              {{ ad.km }} KM
+            </p>
+            <p class="text-base font-bold text-gray-700 text-opacity-50">
+              {{ ad.location }}
+            </p>
+
+            <div class="sm:mt-3 xl:flex xl:justify-between">
+              <h3 class="font-extrabold capitalize text-emerald-500 sm:text-lg">
+                SDG {{ ad.price }}
+              </h3>
+              <p class="text-sm font-bold text-gray-700 text-opacity-50">
+                {{ ad.date }} mins ago
+              </p>
+            </div>
+          </div>
+        </a>
+      </article>
+    </section>
   </main>
 </template>
