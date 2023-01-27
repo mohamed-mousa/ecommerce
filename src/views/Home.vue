@@ -17,8 +17,8 @@ const ads = useAdStore().ads;
       <article class="mx-auto mb-8 max-w-2xl">
         <div class="mb-4 flex items-center justify-between">
           <h1 class="text-5xl font-semibold text-white md:text-6xl">Welcome</h1>
-          <a
-            href="#"
+          <router-link
+            :to="{ name: 'Login' }"
             class="group flex items-center focus:outline-none focus-visible:outline-none"
           >
             <span
@@ -37,7 +37,7 @@ const ads = useAdStore().ads;
                 clip-rule="evenodd"
               />
             </svg>
-          </a>
+          </router-link>
         </div>
         <p class="text-xl text-white text-opacity-80">
           The largest market place in sudan
@@ -156,7 +156,7 @@ const ads = useAdStore().ads;
 
     <!-- cars -->
     <section
-      class="min-h-screen rounded-lg bg-white px-4 py-5 shadow-2xl lg:w-5/12 lg:rounded-l-[40px] lg:rounded-r-none xl:pt-8 2xl:px-8"
+      class="min-h-screen rounded-lg bg-white px-4 pt-5 shadow-2xl lg:w-5/12 lg:rounded-l-[40px] lg:rounded-r-none xl:pt-8 2xl:px-8"
     >
       <!-- title -->
       <article class="mx-auto mb-5 xl:mb-8">
@@ -172,7 +172,7 @@ const ads = useAdStore().ads;
 
       <!-- ads -->
       <article class="mx-auto mb-8">
-        <Ad :data="ads.slice(0, 6)" />
+        <Ad :data="ads.slice(0, 4)" />
       </article>
     </section>
   </main>

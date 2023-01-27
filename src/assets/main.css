@@ -10,3 +10,12 @@
     -ms-overflow-style: none; 
     scrollbar-width: none; 
 } */
+@layer components {
+    .invalid-input {
+      @apply !border-2 !border-red-500 !bg-red-50 !text-red-900 !placeholder-red-700 focus:!border-red-500 focus:!ring-red-500 ;
+    }
+
+    .valid-input {
+        @apply !bg-green-50 !border-2 !border-green-500 !text-green-900 !placeholder-green-700 focus:!ring-green-500 focus:!border-green-500 ;
+      }
+  }
