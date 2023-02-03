@@ -16,6 +16,10 @@ export const useAuthStore = defineStore('auth', () => {
         }
     }
 
-    return { sendOtp, phoneNumber, hasPhoneNumber, generatedOtp }
+    function login() {
+        router.push({ name: "ProfileNoAds" });
+    }
+
+    return { sendOtp, phoneNumber, hasPhoneNumber, generatedOtp, login }
 
 })

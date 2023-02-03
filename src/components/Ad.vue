@@ -23,7 +23,7 @@ onMounted(() => {
       width="300"
       height="200"
       loading="lazy"
-      class="h-32 w-32 rounded-2xl transition-all duration-700 group-hover:scale-150 sm:h-40 sm:w-40"
+      class="h-28 w-28 rounded-2xl transition-all duration-700 group-hover:scale-150 sm:h-36 sm:w-40"
     />
     <div class="mx-3 w-full py-3 xl:mx-5">
       <h2 class="font-extrabold capitalize text-gray-800 sm:text-lg md:text-xl">

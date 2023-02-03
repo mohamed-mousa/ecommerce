@@ -11,6 +11,7 @@ const store = useAuthStore();
 const otp = () => {
   if (otpNumber.value == store.generatedOtp) {
     otpNumberStatus.value = "valid";
+    store.login();
   } else {
     otpNumberStatus.value = "invalid";
     message.value = "OTP number not true? please try again";
