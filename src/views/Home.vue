@@ -172,7 +172,7 @@ const ads = useAdStore().ads;
 
       <!-- ads -->
       <article class="mx-auto mb-8">
-        <Ad :data="ads.slice(0, 5)" />
+        <Ad :data="ads.slice(0, 4)" />
       </article>
     </section>
   </main>
