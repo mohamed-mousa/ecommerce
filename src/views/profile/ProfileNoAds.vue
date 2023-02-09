@@ -78,7 +78,11 @@
               >
                 Free
               </span>
-              <span class="font-extrabold text-teal-700">Upgrade</span>
+              <router-link
+                to="/profile-golden"
+                class="font-extrabold text-teal-700 hover:text-teal-900"
+                >Upgrade</router-link
+              >
             </div>
           </div>
         </div>
