@@ -1,5 +1,5 @@
 <script setup>
-import AdsSkeleton from "./AdsSkeleton.vue";
+import AdsSkeleton from "@/Components/AdsSkeleton.vue";
 import { ref, onMounted } from "vue";
 
 const props = defineProps({
