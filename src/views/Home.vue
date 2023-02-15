@@ -6,8 +6,9 @@ import { useAdStore } from "@/stores/ads";
 import { useAuthStore } from "@/stores/auth";
 const user = useAuthStore().user;
 const categories = useCategoryStore().categories;
-const ads = useAdStore().ads;
+const ads = useAdStore().ads
 </script>
+
 
 <template>
   <main class="bg-emerald-500 p-3 lg:flex lg:p-0">
