@@ -1,6 +1,6 @@
 <template>
   <transition name="scale" mode="out-in">
-    <div v-if="message">
+    <div v-if="message" class="absolute left-0 right-0 w-full max-w-xl">
       <div
         v-if="type == 'success'"
         id="toast-success"

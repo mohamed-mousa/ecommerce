@@ -2,32 +2,20 @@
 import Input from "@/components/Input.vue";
 import Alert from "@/components/Alert.vue";
 import { useAuthStore } from "@/stores/auth";
-import LoginLayout from "@/views/login/LoginLayout.vue";
-import { ref } from "vue";
-const phoneNumber = ref(null);
-const phoneNumberStatus = ref(null);
-const message = ref(null);
-
+import AuthLayout from "@/views/auth/AuthLayout.vue";
+import { usePhoneValidation } from "@/composables/phoneValidation.js";
 const store = useAuthStore();
-const login = () => {
+const { phoneNumber, phoneNumberStatus, PhoneValidationMessage } =
+  usePhoneValidation();
+const otp = () => {
   if (phoneNumberStatus.value === "valid") {
     store.sendOtp(phoneNumber.value);
   }
 };
-function checkValidation() {
-  const validationRegex = /^\d{10}$/;
-  if (phoneNumber.value.match(validationRegex)) {
-    phoneNumberStatus.value = "valid";
-    message.value = "";
-  } else {
-    phoneNumberStatus.value = "invalid";
-    message.value = "Enter valid number from 10 digits";
-  }
-}
 </script>
 
 <template>
-  <LoginLayout>
+  <AuthLayout>
     <template v-slot:back>
       <router-link
         to="/"
@@ -52,27 +40,40 @@ function checkValidation() {
       </router-link>
     </template>
 
-    <form @submit.prevent="login">
+    <form @submit.prevent="otp">
       <h1 class="mb-3 text-5xl font-extrabold capitalize text-teal-700">
         Login
       </h1>
       <p class="text-xl font-semibold text-gray-400">
-        Enter your name and phone number to confirm listing
+        Enter your phone number to confirm listing
       </p>
       <Input
         type="tel"
         v-model="phoneNumber"
-        placeholder="Enter phone number"
+        placeholder="Phone number"
         required
         autocomplete="mobile"
-        @keyup="checkValidation()"
         :class="{
           'valid-input': phoneNumberStatus === 'valid',
           'invalid-input': phoneNumberStatus === 'invalid',
         }"
         class="mt-6 mb-2 border-transparent bg-[#ECEDED] text-xl text-gray-500 placeholder:text-gray-400"
       />
-      <Alert :message="message" type="error" />
+
+      <p class="text-base text-gray-400">
+        Not have account
+        <router-link
+          to="/register"
+          class="font-extrabold text-teal-500 focus:outline-none focus-visible:outline-none"
+          >register now</router-link
+        >
+      </p>
+
+      <Alert
+        :message="PhoneValidationMessage"
+        type="error"
+        class="-bottom-[5rem]"
+      />
       <button
         type="submit"
         :disabled="phoneNumberStatus !== 'valid'"
@@ -81,5 +82,5 @@ function checkValidation() {
         Next
       </button>
     </form>
-  </LoginLayout>
+  </AuthLayout>
 </template>

@@ -4,26 +4,28 @@ import { ref, reactive } from 'vue'
 import router from "@/router/index";
 
 export const useAuthStore = defineStore('auth', () => {
-    const phoneNumber = ref(null)
     const generatedOtp = ref(null)
-    const hasPhoneNumber = ref(false)
-    const user = reactive(
-        { id: 1, name: 'Stephen Hunt', phone: '(865) 227-5707', membership: 'free' }
-    )
-    function sendOtp(phone) {
+    const user = reactive(JSON.parse(localStorage.getItem('user')) || { id: 1, name: '', phone: '', membership: 'free' })
+    function sendOtp(phone, name) {
+        name ? user.name = name : user.name = 'Jon Doe'
         if (phone) {
-            phoneNumber.value = phone
+            user.phone = phone
             generatedOtp.value = Math.floor(Math.random() * 9000) + 1000
-            hasPhoneNumber.value = true
             router.push({ name: "Otp" });
         }
     }
 
-    function login() {
-        user.phone = phoneNumber.value
+    function authenticateUser() {
+        localStorage.setItem('user', JSON.stringify(user))
         router.push({ name: "ProfileNoAds" });
     }
 
-    return { sendOtp, phoneNumber, hasPhoneNumber, generatedOtp, login, user }
+    function logout() {
+        localStorage.removeItem('user')
+        this.user = { id: 1, name: '', phone: '', membership: 'free' }
+        router.push({ name: "Login" });
+    }
+
+    return { sendOtp, generatedOtp, authenticateUser, user, logout }
 
 })

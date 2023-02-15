@@ -1,7 +1,8 @@
 <script setup>
 import Ad from "@/components/Ad.vue";
 import { useAdStore } from "@/stores/ads";
-
+import { useAuthStore } from "@/stores/auth";
+const store = useAuthStore();
 const ads = useAdStore().ads;
 </script>
 
@@ -35,13 +36,33 @@ const ads = useAdStore().ads;
 
           <span class="ml-4">Home</span>
         </router-link>
+        <span
+          v-if="store.user"
+          @click="store.logout()"
+          class="group flex cursor-pointer items-center focus:outline-none focus-visible:outline-none"
+        >
+          <span
+            class="mr-2 hidden text-xl text-teal-500 text-opacity-80 group-hover:text-opacity-100 xl:inline"
+            >Logout</span
+          >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            class="h-8 w-8 fill-teal-500"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M18.685 19.097A9.723 9.723 0 0021.75 12c0-5.385-4.365-9.75-9.75-9.75S2.25 6.615 2.25 12a9.723 9.723 0 003.065 7.097A9.716 9.716 0 0012 21.75a9.716 9.716 0 006.685-2.653zm-12.54-1.285A7.486 7.486 0 0112 15a7.486 7.486 0 015.855 2.812A8.224 8.224 0 0112 20.25a8.224 8.224 0 01-5.855-2.438zM15.75 9a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"
+              clip-rule="evenodd"
+            />
+          </svg>
+        </span>
       </div>
 
       <article class="px-5">
         <h2 class="mb-3 text-2xl font-extrabold capitalize text-black">
           My ads
         </h2>
-
         <div class="relative mb-4 w-full max-w-2xl">
           <Ad
             :data="ads.slice(0, 4)"
@@ -85,19 +106,19 @@ const ads = useAdStore().ads;
               <h2
                 class="font-extrabold capitalize text-gray-800 sm:text-lg md:text-xl"
               >
-                Bertha Allison
+                {{ store.user.name }}
               </h2>
 
               <span class="font-extrabold text-teal-700">Edit</span>
             </div>
             <p class="mb-4 text-base font-bold text-gray-700 text-opacity-50">
-              (401) 238-8840
+              {{ store.user.phone }}
             </p>
             <div>
               <span
                 class="mr-4 rounded bg-gradient-to-r from-yellow-400 to-yellow-500 py-1 px-2 text-center font-bold text-white"
               >
-                Gold
+                {{ store.user.membership }}
               </span>
               <router-link
                 to="/profile-golden"
