@@ -101,7 +101,7 @@ const ads = useAdStore().ads;
                 {{ store.user.membership }}
               </span>
               <router-link
-                to="/profile-golden"
+                to="/membership"
                 class="font-extrabold text-teal-700 hover:text-teal-900"
                 >Upgrade</router-link
               >

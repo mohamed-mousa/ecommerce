@@ -6,7 +6,7 @@ import VueChartkick from "vue-chartkick";
 import "chartkick/chart.js";
 import "./assets/main.css";
 VueChartkick.options = {
-    colors: ["#DBEAFE"],
+    colors: ["#93c5fd"],
 };
 
 const pinia = createPinia();

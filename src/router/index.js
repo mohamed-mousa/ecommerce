@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 import { useAuthStore } from '@/stores/auth'
 import Home from "@/views/Home.vue";
+import Membership from "@/views/Membership.vue";
 import Login from "@/views/auth/Login.vue";
 import Register from "@/views/auth/Register.vue";
 import ProfileNoAds from "@/views/profile/ProfileNoAds.vue";
@@ -46,6 +47,12 @@ const router = createRouter({
       name: 'ProfileWithAds',
       meta: { requiresAuth: true },
       component: ProfileWithAds
+    },
+    {
+      path: '/membership',
+      name: 'Membership',
+      meta: { requiresAuth: true },
+      component: Membership
     },
     {
       path: '/profile-golden',
