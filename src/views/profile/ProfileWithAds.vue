@@ -57,7 +57,9 @@ const ads = useAdStore().ads;
     </div>
     <section class="mx-auto mt-4 max-w-2xl px-5 py-5 md:mt-0 md:py-6">
       <article class="mb-12">
-        <h1 class="mb-3 text-5xl font-extrabold capitalize text-teal-700">
+        <h1
+          class="mb-3 text-4xl font-extrabold capitalize text-teal-700 md:text-5xl"
+        >
           My Profile
         </h1>
         <p class="mb-6 text-xl font-semibold text-gray-400">

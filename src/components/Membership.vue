@@ -12,7 +12,7 @@ defineProps(["data"]);
       <h3 class="mb-2 text-lg font-extrabold capitalize text-neutral-900">
         {{ membership.title }}
       </h3>
-      <p class="text-sm font-semibold text-gray-400">
+      <p class="text-base font-semibold text-gray-400">
         {{ membership.description }}
       </p>
     </div>

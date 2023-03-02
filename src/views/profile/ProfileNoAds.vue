@@ -54,7 +54,9 @@ const store = useAuthStore();
     </div>
     <section class="mx-auto mt-8 max-w-xl px-5 py-5 md:mt-12 md:py-8">
       <article class="mb-12">
-        <h1 class="mb-3 text-5xl font-extrabold capitalize text-teal-700">
+        <h1
+          class="mb-3 text-4xl font-extrabold capitalize text-teal-700 md:text-5xl"
+        >
           My Profile
         </h1>
         <p class="mb-6 text-xl font-semibold text-gray-400">

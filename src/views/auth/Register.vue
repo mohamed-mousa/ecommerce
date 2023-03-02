@@ -44,7 +44,9 @@ const otp = () => {
     </template>
 
     <form @submit.prevent="otp">
-      <h1 class="mb-3 text-5xl font-extrabold capitalize text-teal-700">
+      <h1
+        class="mb-3 text-4xl font-extrabold capitalize text-teal-700 md:text-5xl"
+      >
         Register
       </h1>
       <p class="text-xl font-semibold text-gray-400">

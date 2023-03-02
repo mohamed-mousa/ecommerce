@@ -76,7 +76,9 @@ const circumference = ref(377);
     <!-- profile -->
     <section class="min-h-screen py-5 lg:w-1/2 lg:p-12 lg:py-10">
       <article class="mb-12">
-        <h1 class="mb-3 text-4xl font-extrabold capitalize text-teal-700">
+        <h1
+          class="mb-3 text-3xl font-extrabold capitalize text-teal-700 md:text-4xl"
+        >
           My Profile
         </h1>
         <p class="mb-6 text-xl font-semibold text-gray-400">

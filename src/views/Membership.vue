@@ -56,7 +56,9 @@ const memberships = [
       </router-link>
 
       <article class="mt-5 text-center md:mt-0">
-        <h1 class="text-5xl font-extrabold capitalize text-teal-700">
+        <h1
+          class="text-3xl font-extrabold capitalize text-teal-700 md:text-5xl"
+        >
           Become a member
         </h1>
         <p class="text-xl font-semibold text-gray-400">
@@ -66,7 +68,83 @@ const memberships = [
     </section>
     <section class="mx-auto mt-5 max-w-6xl">
       <article class="lg:flex">
-        <article class="bg-red-400 p-5 lg:w-1/2">aaaa</article>
+        <article class="p-5 lg:w-1/2">
+          <article class="justify-between md:flex">
+            <article
+              class="mb-6 rounded-2xl bg-gradient-to-r from-amber-800 to-amber-200 p-0.5 shadow-md shadow-amber-100"
+            >
+              <div class="rounded-2xl bg-white p-3">
+                <h3
+                  class="mb-4 text-2xl font-extrabold capitalize text-amber-800"
+                >
+                  Bronze
+                </h3>
+                <ul class="mb-3 text-base font-semibold text-gray-400">
+                  <li class="mb-1">- Choose 3 catagories.</li>
+                  <li class="mb-1">- Post 50 ads for free</li>
+                  <li class="mb-1">- Shop dashboard.</li>
+                  <li>- Bronze badge.</li>
+                </ul>
+                <button
+                  type="button"
+                  class="focus-visible:outline-bl w-54 rounded-full border-2 border-[#fff] bg-gradient-to-r from-amber-800 to-amber-500 py-1 px-8 text-center font-bold text-white ring-neutral-900 transition-all duration-500 hover:border-amber-600 hover:to-amber-500 hover:shadow-xl focus:outline-none focus-visible:outline-none"
+                >
+                  20.000 SD ber month
+                </button>
+              </div>
+            </article>
+            <article
+              class="mb-6 rounded-2xl bg-gradient-to-r from-amber-200 to-amber-400 p-0.5 shadow-md shadow-amber-100"
+            >
+              <div class="rounded-2xl bg-white p-3">
+                <h3
+                  class="mb-4 text-2xl font-extrabold capitalize text-amber-200"
+                >
+                  Bronze
+                </h3>
+                <ul class="mb-3 text-base font-semibold text-gray-400">
+                  <li class="mb-1">- Choose 5 catagories.</li>
+                  <li class="mb-1">- Post 100 ads for free</li>
+                  <li class="mb-1">- Shop dashboard.</li>
+                  <li>- Bronze badge.</li>
+                </ul>
+                <button
+                  type="button"
+                  class="focus-visible:outline-bl w-54 rounded-full border-2 border-[#fff] bg-gradient-to-r from-amber-200 to-amber-400 py-1 px-8 text-center font-bold text-white ring-neutral-900 transition-all duration-500 hover:border-amber-600 hover:to-amber-500 hover:shadow-xl focus:outline-none focus-visible:outline-none"
+                >
+                  50.000 SD ber month
+                </button>
+              </div>
+            </article>
+          </article>
+          <article
+            class="rounded-2xl bg-gradient-to-r from-gray-400 to-gray-200 p-0.5 shadow-md shadow-gray-100"
+          >
+            <div class="rounded-2xl bg-white p-3">
+              <h3 class="mb-4 text-2xl font-extrabold capitalize text-gray-400">
+                Platinum
+              </h3>
+              <div class="justify-between md:flex">
+                <ul class="mb-3 text-base font-semibold text-gray-400">
+                  <li class="mb-1">- all catagories.</li>
+                  <li class="mb-1">- Post 250 ads for free</li>
+                  <li class="mb-1">- Shop dashboard.</li>
+                </ul>
+                <ul class="mb-3 text-base font-semibold text-gray-400">
+                  <li class="mb-1">- Bronze badge</li>
+                  <li class="mb-1">- Dedicated agent</li>
+                  <li class="mb-1">- 20 days credit</li>
+                </ul>
+              </div>
+              <button
+                type="button"
+                class="focus-visible:outline-bl w-54 rounded-full border-2 border-[#fff] bg-gradient-to-r from-gray-400 to-gray-200 py-1 px-8 text-center font-bold text-white ring-neutral-900 transition-all duration-500 hover:border-gray-600 hover:to-gray-500 hover:shadow-xl focus:outline-none focus-visible:outline-none"
+              >
+                75.000 SD ber month
+              </button>
+            </div>
+          </article>
+        </article>
         <article class="p-5 lg:w-1/2">
           <h2 class="mb-5 text-2xl font-extrabold capitalize text-neutral-900">
             Benefits of Membership
