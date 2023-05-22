@@ -114,12 +114,12 @@ const circumference = ref(377);
             </p>
             <div>
               <span
-                class="mr-4 rounded bg-gradient-to-r from-yellow-400 to-yellow-500 py-1 px-2 text-center font-bold text-white"
+                class="mr-4 rounded bg-gradient-to-r from-yellow-400 to-yellow-500 py-1 px-2 text-center font-bold uppercase text-white"
               >
                 {{ store.user.membership }}
               </span>
               <router-link
-                to="/profile-golden"
+                to="/membership"
                 class="font-extrabold text-teal-700 hover:text-teal-900"
                 >Upgrade</router-link
               >

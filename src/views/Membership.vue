@@ -1,5 +1,8 @@
 <script setup>
 import Membership from "@/components/Membership.vue";
+import { useAuthStore } from "@/stores/auth";
+const store = useAuthStore();
+
 const memberships = [
   {
     title: "Online shop",
@@ -77,7 +80,7 @@ const memberships = [
                 <h3
                   class="mb-4 text-2xl font-extrabold capitalize text-amber-800"
                 >
-                  Bronze
+                  {{ store.packages[1].name }}
                 </h3>
                 <ul class="mb-3 text-base font-semibold text-gray-400">
                   <li class="mb-1">- Choose 3 catagories.</li>
@@ -85,12 +88,12 @@ const memberships = [
                   <li class="mb-1">- Shop dashboard.</li>
                   <li>- Bronze badge.</li>
                 </ul>
-                <button
-                  type="button"
+                <router-link
+                  :to="'/membership/' + store.packages[1].name"
                   class="focus-visible:outline-bl w-54 rounded-full border-2 border-[#fff] bg-gradient-to-r from-amber-800 to-amber-500 py-1 px-8 text-center font-bold text-white ring-neutral-900 transition-all duration-500 hover:border-amber-600 hover:to-amber-500 hover:shadow-xl focus:outline-none focus-visible:outline-none"
                 >
-                  20.000 SD ber month
-                </button>
+                  {{ store.packages[1].price }} SD ber month
+                </router-link>
               </div>
             </article>
             <article
@@ -100,7 +103,7 @@ const memberships = [
                 <h3
                   class="mb-4 text-2xl font-extrabold capitalize text-amber-200"
                 >
-                  Bronze
+                  {{ store.packages[2].name }}
                 </h3>
                 <ul class="mb-3 text-base font-semibold text-gray-400">
                   <li class="mb-1">- Choose 5 catagories.</li>
@@ -108,12 +111,12 @@ const memberships = [
                   <li class="mb-1">- Shop dashboard.</li>
                   <li>- Bronze badge.</li>
                 </ul>
-                <button
-                  type="button"
+                <router-link
+                  :to="'/membership/' + store.packages[2].name"
                   class="focus-visible:outline-bl w-54 rounded-full border-2 border-[#fff] bg-gradient-to-r from-amber-200 to-amber-400 py-1 px-8 text-center font-bold text-white ring-neutral-900 transition-all duration-500 hover:border-amber-600 hover:to-amber-500 hover:shadow-xl focus:outline-none focus-visible:outline-none"
                 >
-                  50.000 SD ber month
-                </button>
+                  {{ store.packages[2].price }} SD ber month
+                </router-link>
               </div>
             </article>
           </article>
@@ -122,7 +125,7 @@ const memberships = [
           >
             <div class="rounded-2xl bg-white p-3">
               <h3 class="mb-4 text-2xl font-extrabold capitalize text-gray-400">
-                Platinum
+                {{ store.packages[3].name }}
               </h3>
               <div class="justify-between md:flex">
                 <ul class="mb-3 text-base font-semibold text-gray-400">
@@ -136,12 +139,12 @@ const memberships = [
                   <li class="mb-1">- 20 days credit</li>
                 </ul>
               </div>
-              <button
-                type="button"
+              <router-link
+                :to="'/membership/' + store.packages[3].name"
                 class="focus-visible:outline-bl w-54 rounded-full border-2 border-[#fff] bg-gradient-to-r from-gray-400 to-gray-200 py-1 px-8 text-center font-bold text-white ring-neutral-900 transition-all duration-500 hover:border-gray-600 hover:to-gray-500 hover:shadow-xl focus:outline-none focus-visible:outline-none"
               >
-                75.000 SD ber month
-              </button>
+                {{ store.packages[3].price }} SD ber month
+              </router-link>
             </div>
           </article>
         </article>

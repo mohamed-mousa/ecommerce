@@ -95,7 +95,7 @@ const store = useAuthStore();
             </p>
             <div>
               <span
-                class="mr-4 rounded bg-gradient-to-r from-red-400 to-red-500 py-1 px-2 text-center font-bold text-white"
+                class="mr-4 rounded bg-gradient-to-r from-red-400 to-red-500 py-1 px-2 text-center font-bold uppercase text-white"
               >
                 {{ store.user.membership }}
               </span>

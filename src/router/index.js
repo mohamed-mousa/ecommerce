@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from "vue-router";
 import { useAuthStore } from '@/stores/auth'
 import Home from "@/views/Home.vue";
 import Membership from "@/views/Membership.vue";
+import Payment from "@/views/Payment.vue";
 import Login from "@/views/auth/Login.vue";
 import Register from "@/views/auth/Register.vue";
 import ProfileNoAds from "@/views/profile/ProfileNoAds.vue";
@@ -40,13 +41,29 @@ const router = createRouter({
       path: '/profile-no-ads',
       name: 'ProfileNoAds',
       meta: { requiresAuth: true },
-      component: ProfileNoAds
+      component: ProfileNoAds,
+      beforeEnter(to, from, next) {
+        const store = useAuthStore()
+        if (store.user.membership == 'free') {
+          next();
+        } else {
+          next({ name: 'ProfileGolden' })
+        }
+      }
     },
     {
       path: '/profile-with-ads',
       name: 'ProfileWithAds',
       meta: { requiresAuth: true },
-      component: ProfileWithAds
+      component: ProfileWithAds,
+      beforeEnter(to, from, next) {
+        const store = useAuthStore()
+        if (store.user.membership == 'free') {
+          next();
+        } else {
+          next({ name: 'ProfileGolden' })
+        }
+      }
     },
     {
       path: '/membership',
@@ -55,13 +72,19 @@ const router = createRouter({
       component: Membership
     },
     {
+      path: '/membership/:membershipPackage',
+      name: 'Payment',
+      meta: { requiresAuth: true },
+      component: Payment
+    },
+    {
       path: '/profile-golden',
       meta: { requiresAuth: true },
       name: 'ProfileGolden',
       component: ProfileGolden,
       beforeEnter(to, from, next) {
         const store = useAuthStore()
-        if (store.user.membership == 'golden') {
+        if (store.user.membership == 'golden' || store.user.membership == 'bronze' || store.user.membership == 'platinum') {
           next();
         } else {
           next({ name: 'ProfileNoAds' })
