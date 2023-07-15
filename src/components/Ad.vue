@@ -120,7 +120,8 @@ onMounted(() => {
 
             Edit
           </p>
-          <button
+          <router-link
+            :to="'/promote/' + ad.id"
             v-if="showPromotion"
             type="button"
             class="focus-visible:outline-bl flex items-center justify-center rounded-lg bg-gradient-to-r from-purple-900 to-fuchsia-600 py-1 px-2 text-center text-sm font-bold text-white ring-neutral-900 transition-all duration-500 hover:border-purple-600 hover:to-purple-500 hover:shadow-xl focus:outline-none focus-visible:outline-none"
@@ -141,7 +142,7 @@ onMounted(() => {
             </svg>
 
             Promote
-          </button>
+          </router-link>
         </div>
       </div>
     </a>

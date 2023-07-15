@@ -3,6 +3,7 @@ import { useAuthStore } from '@/stores/auth'
 import Home from "@/views/Home.vue";
 import Membership from "@/views/Membership.vue";
 import Payment from "@/views/Payment.vue";
+import Promote from "@/views/Promote.vue";
 import Login from "@/views/auth/Login.vue";
 import Register from "@/views/auth/Register.vue";
 import ProfileNoAds from "@/views/profile/ProfileNoAds.vue";
@@ -76,6 +77,12 @@ const router = createRouter({
       name: 'Payment',
       meta: { requiresAuth: true },
       component: Payment
+    },
+    {
+      path: '/promote/:carId',
+      name: 'Promote',
+      meta: { requiresAuth: true },
+      component: Promote
     },
     {
       path: '/profile-golden',
