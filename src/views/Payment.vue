@@ -98,7 +98,7 @@ const payment = () => {
               <span
                 ><img
                   class="w-52"
-                  src="/images/payment-method.png"
+                  src="/images/payment-method.jpg"
                   alt="payment methods"
               /></span>
             </p>
