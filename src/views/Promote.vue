@@ -6,6 +6,7 @@ import Ad from "@/components/Ad.vue";
 import { ref } from "vue";
 const route = useRoute();
 const store = useAdStore();
+const isShowMore = ref(true);
 const car = ref({
   id: null,
   views: null,
@@ -72,7 +73,7 @@ if (!car.value) {
         </article>
         <div class="items-center md:flex md:justify-between">
           <div class="w-full rounded-2xl border-2 border-fuchsia-400">
-            <div
+            <article
               class="relative flex h-full w-full items-center justify-around px-3 sm:items-center"
             >
               <svg
@@ -101,6 +102,7 @@ if (!car.value) {
                 </p>
               </div>
               <button
+                @click="isShowMore = !isShowMore"
                 type="button"
                 class="focus-visible:outline-bl flex items-center justify-center rounded-lg bg-gradient-to-r from-purple-900 to-fuchsia-600 py-1 px-2 text-center text-sm font-bold text-white ring-neutral-900 transition-all duration-500 hover:border-purple-600 hover:to-purple-500 hover:shadow-xl focus:outline-none focus-visible:outline-none"
               >
@@ -121,7 +123,131 @@ if (!car.value) {
 
                 Promote
               </button>
-            </div>
+            </article>
+            <article
+              class="grid gap-2 p-3 sm:grid-cols-2 lg:grid-cols-4"
+              v-if="isShowMore"
+            >
+              <div class="text-center">
+                <div class="mb-1 rounded-2xl border-2 border-fuchsia-400 p-3">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="mx-auto h-8 w-8 fill-yellow-300 stroke-yellow-400"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z"
+                    />
+                  </svg>
+                  <h5 class="my-3 font-bold text-gray-500">Highligh</h5>
+                  <p
+                    class="rounded-full bg-fuchsia-200 px-1 py-0.5 font-bold text-gray-600"
+                  >
+                    3 days
+
+                    <span class="ml-2 font-extrabold">X</span>
+                  </p>
+                </div>
+                <div class="rounded-2xl bg-fuchsia-100 p-2 font-extrabold">
+                  <h4 class="text-fuchsia-800">3 days</h4>
+                  <p class="text-fuchsia-500">RS 1000+</p>
+                </div>
+              </div>
+
+              <div class="text-center">
+                <div class="mb-1 rounded-2xl border-2 border-fuchsia-400 p-3">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="mx-auto h-8 w-8 stroke-teal-300"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"
+                    />
+                  </svg>
+                  <h5 class="my-3 font-bold text-gray-500">Highligh</h5>
+                  <span
+                    class="inline-block h-8 w-8 rounded-full bg-fuchsia-200 p-1 font-extrabold text-gray-600"
+                    >X</span
+                  >
+                </div>
+                <div class="rounded-2xl bg-fuchsia-100 p-2 font-extrabold">
+                  <h4 class="text-fuchsia-800">3 days</h4>
+                  <p class="text-fuchsia-500">RS 1000+</p>
+                </div>
+              </div>
+
+              <div class="text-center">
+                <div class="mb-1 rounded-2xl border-2 border-fuchsia-400 p-3">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="mx-auto h-8 w-8 fill-blue-300 stroke-blue-400"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M16.5 6v.75m0 3v.75m0 3v.75m0 3V18m-9-5.25h5.25M7.5 15h3M3.375 5.25c-.621 0-1.125.504-1.125 1.125v3.026a2.999 2.999 0 010 5.198v3.026c0 .621.504 1.125 1.125 1.125h17.25c.621 0 1.125-.504 1.125-1.125v-3.026a2.999 2.999 0 010-5.198V6.375c0-.621-.504-1.125-1.125-1.125H3.375z"
+                    />
+                  </svg>
+                  <h5 class="my-3 font-bold text-gray-500">Highligh</h5>
+                  <span
+                    class="inline-block h-8 w-8 rounded-full bg-fuchsia-200 p-1 font-extrabold text-gray-600"
+                    >X</span
+                  >
+                </div>
+                <div class="rounded-2xl bg-fuchsia-100 p-2 font-extrabold">
+                  <h4 class="text-fuchsia-800">3 days</h4>
+                  <p class="text-fuchsia-500">RS 1000+</p>
+                </div>
+              </div>
+
+              <div class="text-center">
+                <div class="mb-1 rounded-2xl border-2 border-fuchsia-400 p-3">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="mx-auto h-8 w-8 fill-red-300 stroke-red-400"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M9.568 3H5.25A2.25 2.25 0 003 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 005.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 009.568 3z"
+                    />
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M6 6h.008v.008H6V6z"
+                    />
+                  </svg>
+                  <h5 class="my-3 font-bold text-gray-500">Highligh</h5>
+                  <span
+                    class="inline-block h-8 w-8 rounded-full bg-fuchsia-200 p-1 font-extrabold text-gray-600"
+                    >X</span
+                  >
+                </div>
+                <div class="rounded-2xl bg-fuchsia-100 p-2 font-extrabold">
+                  <h4 class="text-fuchsia-800">3 days</h4>
+                  <p class="text-fuchsia-500">RS 1000+</p>
+                </div>
+              </div>
+            </article>
           </div>
         </div>
       </section>
