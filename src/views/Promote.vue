@@ -6,7 +6,7 @@ import Ad from "@/components/Ad.vue";
 import { ref } from "vue";
 const route = useRoute();
 const store = useAdStore();
-const isShowMore = ref(true);
+const isShowMore = ref(false);
 const car = ref({
   id: null,
   views: null,
@@ -72,7 +72,7 @@ if (!car.value) {
           </h4>
         </article>
         <div class="items-center md:flex md:justify-between">
-          <div class="w-full rounded-2xl border-2 border-fuchsia-400">
+          <div class="mb-8 w-full rounded-2xl border-2 border-fuchsia-400">
             <article
               class="relative flex h-full w-full items-center justify-around px-3 sm:items-center"
             >
@@ -250,6 +250,58 @@ if (!car.value) {
             </article>
           </div>
         </div>
+        <article
+          v-if="isShowMore"
+          class="rounded-xl border-2 border-gray-50 bg-white p-3 shadow-md shadow-gray-200"
+        >
+          <h2 class="mb-3 text-base font-extrabold capitalize text-neutral-800">
+            Invoice
+          </h2>
+          <p class="flex justify-between text-base font-semibold text-gray-400">
+            <span class="capitalize">Highligh</span>
+            <span>2000 SD</span>
+          </p>
+          <hr class="my-5" />
+          <div
+            class="text-base font-semibold text-gray-400 md:flex md:justify-between"
+          >
+            <p class="flex flex-col">
+              <span class="flex items-center">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  class="mr-1 h-6 w-6 fill-teal-700"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M12 1.5a5.25 5.25 0 00-5.25 5.25v3a3 3 0 00-3 3v6.75a3 3 0 003 3h10.5a3 3 0 003-3v-6.75a3 3 0 00-3-3v-3c0-2.9-2.35-5.25-5.25-5.25zm3.75 8.25v-3a3.75 3.75 0 10-7.5 0v3h7.5z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+
+                Secure payment
+              </span>
+              <span
+                ><img
+                  class="w-52"
+                  src="/images/payment-method.jpg"
+                  alt="payment methods"
+              /></span>
+            </p>
+            <p class="flex flex-col">
+              <span class="mb-2">Amount to be paid</span>
+              <span
+                class="text-xl font-extrabold capitalize text-neutral-800 lg:text-2xl"
+                >2000 SD</span
+              >
+            </p>
+          </div>
+          <router-link
+            :to="{ name: 'ProfileNoAds' }"
+            class="focus-visible:outline-bl mt-2 block w-full rounded-2xl bg-gradient-to-r from-emerald-600 to-emerald-500 py-4 px-8 text-center font-bold text-white ring-neutral-900 transition-all duration-500 hover:to-emerald-600 hover:shadow-xl focus:outline-none focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50 md:mt-6"
+            >Continue</router-link
+          >
+        </article>
       </section>
     </section>
   </main>
